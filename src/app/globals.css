@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Dark Context (The Studio) */
+  --color-dark-base: #141210;
+  --color-dark-surface: #1E1B18;
+  --color-dark-border: #3A342C;
+  --color-dark-text: #C8B898;
+  --color-dark-text-dim: #7A7268;
+  --color-dark-text-muted: #5A5650;
+
+  /* Light Context (The Workshop) */
+  --color-light-base: #EDE7DB;
+  --color-light-surface: #E2DCD0;
+  --color-light-border: #C8C2B6;
+  --color-light-text: #3A342C;
+  --color-light-text-dim: #6A6258;
+  --color-light-text-muted: #8A8478;
+
+  /* Accent Colors */
+  --color-accent-amber: #C86A1A;
+  --color-accent-green: #4A6A42;
+  --color-accent-red: #8A2A2A;
+  --color-screen-black: #0A0A08;
+
+  /* Fonts */
+  --font-display: "Archivo", sans-serif;
+  --font-body: "Archivo", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* Letter Spacing */
+  --tracking-display: 0.5em;
+  --tracking-heading: 0.25em;
+  --tracking-label: 0.15em;
+  --tracking-mono: 0.1em;
+
+  /* Border Radius */
+  --radius-btn: 2px;
+  --radius-card: 3px;
+
+  /* Animations */
+  --animate-led-pulse: led-pulse 3s ease-in-out infinite;
+  --animate-scan-line: scan-line 0.3s ease-out forwards;
+  --animate-background-position-spin: background-position-spin 3000ms infinite alternate;
+
+  @keyframes background-position-spin {
+    0% { background-position: top center; }
+    100% { background-position: bottom center; }
+  }
+
+  @keyframes led-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-dark-base);
+    color: var(--color-dark-text);
+  }
+
+  a {
+    transition: color 0.3s ease;
+  }
+
+  ::selection {
+    background: rgba(74, 106, 66, 0.3);
+  }
+
+  /* Noise overlay — static tiled texture (no SVG filters) */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.03;
+    background-image: url("/noise.png");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+    mix-blend-mode: overlay;
+    will-change: transform;
+  }
+}
+
+/* Pine Orb — CSS @property for animatable custom angle */
+@property --orb-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.pine-orb::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background:
+    conic-gradient(from calc(var(--orb-angle) * 1.2) at 30% 65%, #4A6A42 0deg, transparent 45deg 315deg, #4A6A42 360deg),
+    conic-gradient(from calc(var(--orb-angle) * 0.8) at 70% 35%, #3A5A32 0deg, transparent 60deg 300deg, #3A5A32 360deg),
+    conic-gradient(from calc(var(--orb-angle) * -1.5) at 65% 75%, #5A7A52 0deg, transparent 90deg 270deg, #5A7A52 360deg),
+    conic-gradient(from calc(var(--orb-angle) * 2.1) at 25% 25%, #2F4E29 0deg, transparent 30deg 330deg, #2F4E29 360deg),
+    radial-gradient(ellipse 120% 80% at 40% 60%, #4A6A42 0%, transparent 50%);
+  filter: blur(40px) contrast(1.8) saturate(1.2);
+  animation: orb-rotate 25s linear infinite;
+  will-change: transform, filter;
+}
+
+@keyframes orb-rotate {
+  from { --orb-angle: 0deg; }
+  to { --orb-angle: 360deg; }
+}
+
+/* Shutter heading mask */
+.shutter-heading {
+  -webkit-mask-image:
+    linear-gradient(to bottom, black 50%, transparent 50%),
+    repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 5px);
+  -webkit-mask-composite: source-over;
+  mask-image:
+    linear-gradient(to bottom, black 50%, transparent 50%),
+    repeating-linear-gradient(to bottom, black 0px, black 3px, transparent 3px, transparent 5px);
+  mask-composite: add;
+}
+
+/* Pine waveform paths */
+.wave-pine {
+  fill: none;
+  stroke: #4A6A42;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0.6;
+  animation: wave-flow 5s ease-in-out infinite;
+}
+.wave-pine-ghost {
+  fill: none;
+  stroke: #4A6A42;
+  stroke-width: 1;
+  stroke-linecap: round;
+  opacity: 0.15;
+  animation: wave-flow 5s ease-in-out infinite 0.4s;
+}
+.wave-amber-accent {
+  fill: none;
+  stroke: #C86A1A;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  opacity: 0.2;
+  animation: wave-slow 8s ease-in-out infinite;
+}
+
+@keyframes wave-flow {
+  0%   { d: path('M0,30 C80,10 120,50 200,30 C280,10 320,50 400,30 C480,10 520,50 600,30 C650,20 680,40 700,30'); }
+  25%  { d: path('M0,30 C80,45 120,15 200,35 C280,50 320,10 400,25 C480,45 520,15 600,35 C650,40 680,20 700,30'); }
+  50%  { d: path('M0,30 C80,28 120,32 200,29 C280,31 320,28 400,31 C480,29 520,32 600,28 C650,30 680,30 700,30'); }
+  75%  { d: path('M0,30 C80,15 120,45 200,25 C280,10 320,50 400,35 C480,15 520,45 600,25 C650,20 680,40 700,30'); }
+  100% { d: path('M0,30 C80,10 120,50 200,30 C280,10 320,50 400,30 C480,10 520,50 600,30 C650,20 680,40 700,30'); }
+}
+@keyframes wave-slow {
+  0%, 100% { d: path('M0,30 C175,25 350,35 525,30 C612,28 656,32 700,30'); opacity: 0.15; }
+  50%      { d: path('M0,30 C175,35 350,25 525,32 C612,34 656,26 700,30'); opacity: 0.25; }
+}
+
+/* Channel strip pine glow */
+.channel-strip-glow {
+  position: relative;
+}
+.channel-strip-glow::before {
+  content: '';
+  position: absolute;
+  inset: -20px 0;
+  background: radial-gradient(ellipse at center, rgba(74, 106, 66, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}

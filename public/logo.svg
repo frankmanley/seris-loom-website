@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Mask carves negative space where the orbit passes through -->
+    <mask id="orbit-gap">
+      <rect width="512" height="512" fill="white"/>
+      <path d="M 72 440 Q 164 348, 220 292 C 242 270, 252 258, 256 256 C 260 254, 270 242, 292 220 Q 348 164, 440 72"
+            stroke="black" stroke-width="48" fill="none" stroke-linecap="round"/>
+    </mask>
+  </defs>
+
+  <!-- Circle with gap — organic stroke width variation via slight dasharray -->
+  <circle cx="256" cy="256" r="224" stroke="#4A6A42" stroke-width="14" fill="none"
+          stroke-linecap="round" mask="url(#orbit-gap)"
+          stroke-dasharray="1398 2" stroke-dashoffset="20"/>
+
+  <!-- Orbit — primary thread, slightly organic bezier at ~45deg -->
+  <path d="M 54 458 Q 130 382, 192 320 C 224 288, 244 264, 256 256 C 268 248, 288 224, 320 192 Q 382 130, 458 54"
+        stroke="#4A6A42" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Orbit echo — thinner parallel thread, offset slightly for dynamism -->
+  <path d="M 64 448 Q 148 368, 202 314 C 232 284, 248 264, 258 254 C 268 244, 284 228, 314 198 Q 370 140, 450 60"
+        stroke="#3A5A32" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Wabi-sabi: asymmetric termination dots -->
+  <circle cx="58" cy="454" r="6" fill="#4A6A42" opacity="0.65"/>
+  <circle cx="455" cy="57" r="3.5" fill="#4A6A42" opacity="0.4"/>
+</svg>
