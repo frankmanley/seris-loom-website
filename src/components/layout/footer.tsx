@@ -7,14 +7,9 @@ export function Footer() {
       <div className="mx-auto max-w-5xl flex flex-col md:flex-row items-center md:justify-between gap-4 text-center md:text-left">
         <Link
           href="/"
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-3 group"
         >
-          <div
-            className="w-3.5 h-3.5 rounded-full shrink-0"
-            style={{
-              background: "conic-gradient(from 180deg, #E13838, #E87B35, #E8D735, #35E870, #3588E8, #8835E8, #E13838)",
-            }}
-          />
+          <div className="w-3.5 h-3.5 rounded-full shrink-0 bg-accent-green" />
           <span className="font-display font-thin text-sm tracking-heading uppercase text-dark-text-dim group-hover:text-accent-amber transition-colors duration-300">
             Seris Loom
           </span>

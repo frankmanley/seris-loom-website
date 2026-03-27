@@ -45,13 +45,8 @@ export function Navigation() {
         }}
       >
         {/* Left: logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div
-            className="w-5 h-5 rounded-full shrink-0 transition-transform duration-300 group-hover:scale-110"
-            style={{
-              background: "conic-gradient(from 180deg, #E13838, #E87B35, #E8D735, #35E870, #3588E8, #8835E8, #E13838)",
-            }}
-          />
+        <Link href="/" className="flex items-center gap-4 group">
+          <div className="w-5 h-5 rounded-full shrink-0 bg-accent-green transition-transform duration-300 group-hover:scale-110" />
           <span className="font-display font-thin text-lg tracking-display uppercase text-dark-text group-hover:text-accent-amber transition-colors duration-300">
             Seris Loom
           </span>
