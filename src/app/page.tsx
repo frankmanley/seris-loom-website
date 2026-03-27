@@ -5,15 +5,13 @@ import { ChannelStrip } from "@/components/ui/channel-strip";
 import { SectionLight } from "@/components/layout/section-light";
 import { SectionDark } from "@/components/layout/section-dark";
 import { CRTInset } from "@/components/ui/crt-inset";
-import { Button } from "@/components/ui/button";
 import { LightBoard } from "@/components/ui/lightboard";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { TextureOverlay } from "@/components/ui/texture-overlay";
-import { GreenLine, GreenText, GreenBar, GreenCorner, GreenDot } from "@/components/ui/green-accents";
+import { GreenLine, GreenText, GreenDot } from "@/components/ui/green-accents";
 import { products } from "@/data/products";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import Link from "next/link";
 
 function RevealWrapper({ children }: { children: React.ReactNode }) {
   const { ref, isInView } = useScrollReveal();
@@ -32,7 +30,7 @@ function RevealWrapper({ children }: { children: React.ReactNode }) {
 }
 
 export default function Home() {
-  const featured = products.find((p) => p.status === "active");
+  const res = products.find((p) => p.slug === "res");
 
   return (
     <>
@@ -42,7 +40,7 @@ export default function Home() {
       {/* 2. LightBoard Ticker */}
       <div className="bg-screen-black border-y border-dark-border py-2">
         <LightBoard
-          text="SERIS LOOM // UTILITY FIRST AUDIO TOOLS // RES COMP SIGNAL CULL"
+          text="SERIS LOOM // UTILITY FIRST AUDIO TOOLS // COMING SOON"
           rows={7}
           gap={1}
           lightSize={3}
@@ -71,28 +69,28 @@ export default function Home() {
       </SectionLight>
 
       {/* 4. Channel Strip */}
-      <ChannelStrip label="PRODUCTS" activeLEDs={3} />
+      <ChannelStrip label="PREVIEW" activeLEDs={1} />
 
-      {/* 5. Featured Product */}
-      {featured && (
+      {/* 5. Featured Product — Coming Soon */}
+      {res && (
         <SectionDark>
           <RevealWrapper>
-            {/* Above: label + heading + CTA row */}
+            {/* Above: label + heading */}
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
               <div>
-                <p className="font-mono text-xs tracking-label uppercase text-accent-green mb-2">
-                  NOW MONITORING
+                <p className="font-mono text-xs tracking-label uppercase text-accent-amber mb-2">
+                  COMING SOON
                 </p>
                 <div className="flex items-center gap-3">
                   <GreenDot size="lg" />
                   <h2 className="font-display font-extralight text-3xl md:text-4xl tracking-heading uppercase text-dark-text">
-                    {featured.name}
+                    {res.name}
                   </h2>
                 </div>
               </div>
-              <Link href={`/products/${featured.slug}`}>
-                <Button variant="primary">Learn More</Button>
-              </Link>
+              <span className="font-mono text-[10px] tracking-mono uppercase text-dark-text-muted">
+                In Development
+              </span>
             </div>
 
             {/* Main 12-column grid */}
@@ -117,26 +115,20 @@ export default function Home() {
                     flickerChance={0.02}
                   />
                   {/* Plugin screenshot */}
-                  {featured.image && (
+                  {res.image && (
                     <img
-                      src={featured.image}
-                      alt={featured.name}
+                      src={res.image}
+                      alt={res.name}
                       className="w-full h-full object-contain"
                     />
                   )}
                   {/* Overlay: top-left status */}
                   <div className="absolute top-3 left-3 z-20 flex flex-col gap-1">
-                    <span className="font-mono text-[10px] tracking-mono text-accent-green/80">
-                      SIGNAL: ACTIVE
+                    <span className="font-mono text-[10px] tracking-mono text-accent-amber/80">
+                      STATUS: DEV
                     </span>
-                    <span className="font-mono text-[10px] tracking-mono text-accent-amber/70">
-                      FREQ: 44.1 KHZ
-                    </span>
-                  </div>
-                  {/* Overlay: bottom-right timestamp */}
-                  <div className="absolute bottom-3 right-3 z-20">
-                    <span className="font-mono text-[10px] tracking-mono text-dark-text-muted/60">
-                      {`v${featured.version} // RES-01`}
+                    <span className="font-mono text-[10px] tracking-mono text-accent-green/70">
+                      PROGRESS: {res.progress}%
                     </span>
                   </div>
                   {/* Overlay: corner accents */}
@@ -153,11 +145,11 @@ export default function Home() {
                 <div className="flex flex-col divide-y divide-dark-border">
                   {[
                     { label: "TYPE", value: "Resonance Extractor" },
-                    { label: "FORMAT", value: "VST3 / AU" },
+                    { label: "FORMAT", value: "VST3" },
                     { label: "LATENCY", value: "0 Samples" },
                     { label: "OS", value: "macOS / Win" },
                     { label: "OVERSAMPLE", value: "2x Always" },
-                    { label: "VERSION", value: `v${featured.version}` },
+                    { label: "STATUS", value: "Coming Soon" },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex justify-between items-center py-2">
                       <span className="font-mono text-[10px] tracking-mono uppercase text-dark-text-muted">
@@ -170,7 +162,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="font-body font-light text-xs text-dark-text-dim leading-relaxed mt-auto">
-                  {featured.tagline}
+                  {res.tagline}
                 </p>
               </div>
             </div>
@@ -179,7 +171,7 @@ export default function Home() {
       )}
 
       {/* 6. Channel Strip */}
-      <ChannelStrip label="PIPELINE" activeLEDs={2} totalLEDs={6} />
+      <ChannelStrip label="PIPELINE" activeLEDs={1} totalLEDs={4} />
 
       {/* 7. Pipeline / R&D */}
       <SectionLight className="relative overflow-hidden">
@@ -196,18 +188,10 @@ export default function Home() {
             </p>
           </div>
 
-          {/* R&D grid: 1px gap border effect */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-light-border rounded-[--radius-card] overflow-hidden">
+          {/* R&D grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-light-border rounded-[--radius-card] overflow-hidden">
             {products.map((product, index) => {
               const projectNum = String(index + 1).padStart(3, "0");
-              const isActive = product.status === "active";
-              const isBeta = !isActive && (product.progress ?? 0) > 20;
-              const badgeLabel = isActive ? "ACTIVE" : isBeta ? "BETA" : "CONCEPT";
-              const badgeClass = isActive
-                ? "bg-accent-green/20 text-accent-green"
-                : isBeta
-                ? "bg-accent-amber/20 text-accent-amber"
-                : "bg-light-surface text-light-text-muted";
 
               return (
                 <div key={product.slug} className="bg-light-base p-5 flex flex-col gap-3">
@@ -216,10 +200,8 @@ export default function Home() {
                     <span className="font-mono text-[10px] tracking-mono text-light-text-muted">
                       PROJECT_{projectNum}
                     </span>
-                    <span
-                      className={`font-mono text-[9px] tracking-label uppercase px-1.5 py-0.5 rounded-sm ${badgeClass}`}
-                    >
-                      {badgeLabel}
+                    <span className="font-mono text-[9px] tracking-label uppercase px-1.5 py-0.5 rounded-sm bg-accent-amber/20 text-accent-amber">
+                      IN DEV
                     </span>
                   </div>
 
@@ -245,9 +227,7 @@ export default function Home() {
                     </div>
                     <div className="h-px w-full bg-light-border relative overflow-hidden">
                       <div
-                        className={`absolute left-0 top-0 h-full ${
-                          isActive ? "bg-accent-green" : "bg-accent-amber/60"
-                        }`}
+                        className="absolute left-0 top-0 h-full bg-accent-amber/60"
                         style={{ width: `${product.progress ?? 0}%` }}
                       />
                     </div>
@@ -255,43 +235,12 @@ export default function Home() {
                 </div>
               );
             })}
-
-            {/* Placeholder slot — keeps 4-col rhythm if fewer than 4 products */}
-            {products.length < 4 && (
-              <div className="bg-light-base p-5 flex flex-col gap-3 opacity-30">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] tracking-mono text-light-text-muted">
-                    PROJECT_{String(products.length + 1).padStart(3, "0")}
-                  </span>
-                  <span className="font-mono text-[9px] tracking-label uppercase px-1.5 py-0.5 rounded-sm bg-light-surface text-light-text-muted">
-                    TBD
-                  </span>
-                </div>
-                <h3 className="font-display font-light text-base tracking-label uppercase text-light-text leading-tight">
-                  Undisclosed
-                </h3>
-                <p className="font-body text-xs text-light-text-dim leading-relaxed flex-1">
-                  Details withheld pending internal review.
-                </p>
-                <div className="mt-auto">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="font-mono text-[9px] tracking-mono text-light-text-muted uppercase">
-                      Progress
-                    </span>
-                    <span className="font-mono text-[9px] tracking-mono text-light-text-muted">
-                      —
-                    </span>
-                  </div>
-                  <div className="h-px w-full bg-light-border" />
-                </div>
-              </div>
-            )}
           </div>
         </RevealWrapper>
       </SectionLight>
 
       {/* 8. Channel Strip */}
-      <ChannelStrip activeLEDs={0} totalLEDs={6} />
+      <ChannelStrip activeLEDs={0} totalLEDs={4} />
     </>
   );
 }

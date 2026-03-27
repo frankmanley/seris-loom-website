@@ -4,7 +4,6 @@ import { SectionDark } from "@/components/layout/section-dark";
 import { SectionLight } from "@/components/layout/section-light";
 import { ChannelStrip } from "@/components/ui/channel-strip";
 import { CRTInset } from "@/components/ui/crt-inset";
-import { Button } from "@/components/ui/button";
 import { LEDIndicator } from "@/components/ui/led-indicator";
 
 export function generateStaticParams() {
@@ -25,13 +24,9 @@ export default async function ProductDetailPage({
     <>
       <SectionDark className="pt-24">
         <div className="flex items-center gap-3 mb-4">
-          <LEDIndicator
-            color={product.status === "active" ? "green" : "amber"}
-            pulse={product.status === "active"}
-            size="md"
-          />
+          <LEDIndicator color="amber" size="md" />
           <span className="font-mono text-xs text-dark-text-muted tracking-mono uppercase">
-            {product.status === "active" ? `v${product.version} — ACTIVE` : "IN DEVELOPMENT"}
+            Coming Soon
           </span>
         </div>
         <h1 className="font-display font-thin text-4xl md:text-5xl tracking-display uppercase text-dark-text mb-4">
@@ -52,30 +47,18 @@ export default async function ProductDetailPage({
         )}
       </SectionDark>
 
-      <ChannelStrip label={product.name.toUpperCase()} activeLEDs={product.status === "active" ? 4 : 1} />
+      <ChannelStrip label={product.name.toUpperCase()} activeLEDs={1} />
 
       <SectionLight>
         <h2 className="font-display font-extralight text-2xl tracking-heading uppercase text-light-text mb-6">
           Overview
         </h2>
         <p className="font-body font-light text-light-text-dim leading-relaxed max-w-2xl">
-          {product.tagline}. More detailed product information will be added here as the plugin develops.
+          {product.tagline}. Currently in development — more details coming soon.
         </p>
       </SectionLight>
 
       <ChannelStrip activeLEDs={0} />
-
-      {product.status === "active" && (
-        <SectionDark>
-          <h2 className="font-display font-extralight text-2xl tracking-heading uppercase text-dark-text mb-6">
-            Download
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <Button variant="primary">Download VST3</Button>
-            <Button variant="secondary">System Requirements</Button>
-          </div>
-        </SectionDark>
-      )}
     </>
   );
 }

@@ -10,25 +10,17 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    name: "Seris Res",
+    name: "Res",
     slug: "res",
     tagline: "Resonance extractor — filter excitation + sustain shaping",
-    status: "active",
-    version: "1.2",
-    image: "/images/res-screenshot.png",
-    progress: 100,
-  },
-  {
-    name: "Seris Comp",
-    slug: "comp",
-    tagline: "VCA-style bus compressor",
     status: "pending",
-    progress: 35,
+    image: "/images/res-screenshot.png",
+    progress: 85,
   },
   {
-    name: "Signal Cull",
-    slug: "signal-cull",
-    tagline: "Precision signal gate + ducker",
+    name: "Byt",
+    slug: "byt",
+    tagline: "8-bit Game Boy DMG synth — VHS wobble + tape degradation",
     status: "pending",
     progress: 15,
   },

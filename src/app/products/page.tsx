@@ -3,9 +3,6 @@ import { SectionDark } from "@/components/layout/section-dark";
 import { SectionLight } from "@/components/layout/section-light";
 import { ChannelStrip } from "@/components/ui/channel-strip";
 import { Card } from "@/components/ui/card";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { TextureOverlay } from "@/components/ui/texture-overlay";
-import Link from "next/link";
 
 export default function ProductsPage() {
   return (
@@ -15,35 +12,22 @@ export default function ProductsPage() {
           Products
         </h1>
         <p className="font-display font-extralight text-base text-dark-text-dim tracking-wide">
-          Utility-first audio tools for the space between intention and sound
+          Utility-first audio tools — coming soon
         </p>
       </SectionDark>
 
-      <ChannelStrip label="ALL PRODUCTS" activeLEDs={products.filter(p => p.status === "active").length} totalLEDs={products.length} />
+      <ChannelStrip label="IN DEVELOPMENT" activeLEDs={0} totalLEDs={products.length} />
 
-      <SectionLight className="relative overflow-hidden">
-        <TextureOverlay texture="grid" opacity={0.03} className="mix-blend-overlay" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <SectionLight>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {products.map((product) => (
-            <Link key={product.slug} href={`/products/${product.slug}`}>
-              <div className="relative overflow-hidden rounded-[--radius-card]">
-                <Card
-                  title={product.name}
-                  description={product.tagline}
-                  status={product.status}
-                  image={product.image}
-                />
-                {product.status === "active" && (
-                  <BorderBeam
-                    size={80}
-                    duration={8}
-                    colorFrom="#4A6A42"
-                    colorTo="#C86A1A"
-                    borderWidth={1}
-                  />
-                )}
-              </div>
-            </Link>
+            <Card
+              key={product.slug}
+              title={product.name}
+              description={product.tagline}
+              status={product.status}
+              image={product.image}
+            />
           ))}
         </div>
       </SectionLight>
