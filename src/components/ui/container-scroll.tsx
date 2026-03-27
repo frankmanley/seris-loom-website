@@ -27,7 +27,7 @@ export function ContainerScroll({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [isMobile ? 10 : 20, 0]);
   const scale = useTransform(
     scrollYProgress,
     [0, 1],
@@ -37,7 +37,7 @@ export function ContainerScroll({
 
   return (
     <div
-      className={`h-[60rem] md:h-[80rem] flex items-start justify-center relative p-2 md:p-20 pt-24 md:pt-32 ${className ?? ""}`}
+      className={`h-[40rem] sm:h-[50rem] md:h-[80rem] flex items-start justify-center relative p-2 md:p-20 pt-20 sm:pt-24 md:pt-32 ${className ?? ""}`}
       ref={containerRef}
     >
       <div
@@ -87,11 +87,9 @@ function ScrollCard({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl mt-8 mx-auto h-[30rem] md:h-[40rem] w-full border border-dark-border p-2 md:p-4 bg-screen-black rounded-[--radius-card] shadow-2xl"
+      className="max-w-5xl mt-4 sm:mt-8 mx-auto h-[16rem] sm:h-[24rem] md:h-[40rem] w-full"
     >
-      <div className="h-full w-full overflow-hidden rounded-[--radius-card]">
-        {children}
-      </div>
+      {children}
     </motion.div>
   );
 }

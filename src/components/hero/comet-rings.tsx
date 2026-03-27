@@ -17,7 +17,7 @@ export function CometRings() {
 
   return (
     <div
-      className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] pointer-events-none"
+      className="hidden sm:block absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] pointer-events-none"
       style={{ perspective: '1200px' }}
     >
       {rings.map((ring, i) => (
