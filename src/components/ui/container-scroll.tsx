@@ -37,7 +37,7 @@ export function ContainerScroll({
 
   return (
     <div
-      className={`h-[40rem] sm:h-[50rem] md:h-[70rem] flex items-start justify-center relative p-2 md:p-10 pt-4 ${className ?? ""}`}
+      className={`h-[40rem] sm:h-[50rem] md:h-[70rem] flex items-start justify-center relative p-2 md:p-10 pt-0 ${className ?? ""}`}
       ref={containerRef}
     >
       <div
@@ -85,7 +85,7 @@ function ScrollCard({
         rotateX: rotate,
         scale,
       }}
-      className="max-w-5xl mt-4 sm:mt-8 mx-auto h-[24rem] sm:h-[32rem] md:h-[50rem] w-full"
+      className="max-w-5xl mx-auto h-[24rem] sm:h-[32rem] md:h-[50rem] w-full"
     >
       {children}
     </motion.div>
