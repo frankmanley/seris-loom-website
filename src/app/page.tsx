@@ -10,6 +10,7 @@ import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { TextureOverlay } from "@/components/ui/texture-overlay";
 import { GreenLine, GreenText, GreenDot } from "@/components/ui/green-accents";
+import { ScaledIframe } from "@/components/ui/scaled-iframe";
 import { products } from "@/data/products";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
@@ -101,10 +102,12 @@ export default function Home() {
                 colorTo="#C86A1A"
                 borderWidth={1}
               />
-              <iframe
+              <ScaledIframe
                 src="/byt-prototype/index.html"
-                className="w-full h-[600px] border-0"
                 title="Seris Byt — 8-bit Synth Plugin"
+                width={620}
+                height={380}
+                className="w-full"
               />
             </div>
 

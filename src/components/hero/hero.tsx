@@ -2,6 +2,7 @@
 
 import { PineOrb } from "./pine-orb";
 import { CometRings } from "./comet-rings";
+import { ScaledIframe } from "@/components/ui/scaled-iframe";
 
 export function Hero() {
   return (
@@ -9,14 +10,14 @@ export function Hero() {
       <PineOrb />
       <CometRings />
 
-      {/* Plugin */}
-      <div className="relative z-10 w-full max-w-3xl">
-        <iframe
-          src="/byt-prototype/index.html"
-          className="w-full h-[280px] sm:h-[350px] md:h-[420px] border-0 rounded-[--radius-card]"
-          title="Seris Byt — 8-bit Synth Plugin"
-        />
-      </div>
+      {/* Plugin — scales down responsively, no scrollbars */}
+      <ScaledIframe
+        src="/byt-prototype/index.html"
+        title="Seris Byt — 8-bit Synth Plugin"
+        width={620}
+        height={380}
+        className="relative z-10 w-full max-w-3xl"
+      />
 
       {/* Text */}
       <div className="relative z-10 text-center mt-8">
