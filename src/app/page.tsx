@@ -103,7 +103,7 @@ export default function Home() {
               />
               <iframe
                 src="/byt-prototype/index.html"
-                className="w-full h-[500px] border-0"
+                className="w-full h-[600px] border-0"
                 title="Seris Byt — 8-bit Synth Plugin"
               />
             </div>
