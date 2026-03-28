@@ -40,8 +40,9 @@ export function Navigation() {
         )}
         style={{
           backgroundImage: "linear-gradient(rgba(20, 18, 16, 0.92), rgba(20, 18, 16, 0.92)), url('/images/textures/console-wood.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundSize: "cover, 600px auto",
+          backgroundPosition: "center, center",
+          backgroundRepeat: "no-repeat, repeat",
         }}
       >
         {/* Left: logo */}
