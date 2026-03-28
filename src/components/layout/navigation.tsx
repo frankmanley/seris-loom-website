@@ -50,7 +50,7 @@ export function Navigation() {
           <img
             src="/logo-wordmark.png"
             alt="Seris Loom"
-            className="h-5 w-auto transition-opacity duration-300 group-hover:opacity-80"
+            className="h-8 w-auto transition-opacity duration-300 group-hover:opacity-80"
           />
         </Link>
 
