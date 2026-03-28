@@ -2,7 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { SectionDark } from "@/components/layout/section-dark";
+import { SectionLight } from "@/components/layout/section-light";
 import { ChannelStrip } from "@/components/ui/channel-strip";
+import { GreenLine } from "@/components/ui/green-accents";
 import { cn } from "@/lib/utils";
 
 const TIME_SIGNATURES = [
@@ -85,7 +87,6 @@ export default function MetronomePage() {
     setCurrentBeat(-1);
   }, []);
 
-  // Restart if bpm or time sig changes while playing
   useEffect(() => {
     if (playing) {
       stopMetronome();
@@ -93,7 +94,6 @@ export default function MetronomePage() {
     }
   }, [bpm, timeSig]);
 
-  // Cleanup
   useEffect(() => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
@@ -116,7 +116,6 @@ export default function MetronomePage() {
     }
   };
 
-  // Keyboard shortcuts
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.code === "Space") {
@@ -141,21 +140,8 @@ export default function MetronomePage() {
 
   return (
     <>
-      <SectionDark className="pt-24 pb-8">
-        <p className="font-pixel text-[10px] tracking-label uppercase text-accent-green mb-3">
-          Free Tool
-        </p>
-        <h1 className="font-display font-thin text-4xl md:text-5xl tracking-display uppercase text-dark-text mb-4">
-          Metronome
-        </h1>
-        <p className="font-display font-extralight text-base text-dark-text-dim tracking-wide">
-          Precision click track — tap tempo, time signatures, keyboard shortcuts
-        </p>
-      </SectionDark>
-
-      <ChannelStrip label="METRONOME" activeLEDs={playing ? 4 : 0} />
-
-      <SectionDark className="pb-20">
+      {/* Metronome widget — first thing below nav */}
+      <SectionDark className="pt-20 pb-12">
         <div className="max-w-md mx-auto">
           {/* Beat indicators */}
           <div className="flex items-center justify-center gap-3 mb-10">
@@ -262,13 +248,127 @@ export default function MetronomePage() {
           </div>
 
           {/* Keyboard shortcuts */}
-          <div className="text-center space-y-1">
+          <div className="text-center">
             <p className="font-mono text-[9px] text-dark-text-muted tracking-mono">
               SPACE: play/stop &nbsp; T: tap tempo &nbsp; ↑↓: adjust BPM
             </p>
           </div>
         </div>
       </SectionDark>
+
+      <ChannelStrip label="METRONOME" activeLEDs={playing ? 4 : 0} />
+
+      {/* SEO content */}
+      <SectionLight>
+        <div className="max-w-2xl mx-auto">
+          <p className="font-pixel text-[10px] tracking-label uppercase text-accent-green mb-3">
+            Free Tool
+          </p>
+          <h1 className="font-display font-light text-3xl md:text-4xl tracking-heading uppercase text-light-text mb-6">
+            Free Online Metronome
+          </h1>
+
+          <GreenLine className="w-16 mb-8" />
+
+          <div className="space-y-6 font-body font-light text-base text-light-text-dim leading-[1.8]">
+            <p>
+              A free, browser-based metronome built for musicians, producers, and engineers who need
+              precise tempo control without installing anything. Works on desktop and mobile, runs
+              entirely in your browser using the Web Audio API for sample-accurate timing.
+            </p>
+
+            <h2 className="font-display font-light text-xl tracking-heading uppercase text-light-text pt-2">
+              Features
+            </h2>
+
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-accent-green mt-2 shrink-0" />
+                <span><strong className="text-light-text">Tap tempo</strong> — tap the button or press T to set your tempo by feel. The metronome averages your last several taps for accuracy.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-accent-green mt-2 shrink-0" />
+                <span><strong className="text-light-text">Time signatures</strong> — 4/4, 3/4, 6/8, 5/4, and 7/8. The downbeat is accented with a higher pitch and a green visual indicator.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-accent-green mt-2 shrink-0" />
+                <span><strong className="text-light-text">BPM range of 20 to 300</strong> — covers everything from ambient drone to blast beats. Use the slider for sweeps or the fine-tune buttons for precision.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-accent-green mt-2 shrink-0" />
+                <span><strong className="text-light-text">Keyboard shortcuts</strong> — Space to start/stop, T to tap tempo, arrow keys to nudge BPM up or down by 1.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1 h-1 rounded-full bg-accent-green mt-2 shrink-0" />
+                <span><strong className="text-light-text">No install, no account</strong> — works instantly in Chrome, Safari, Firefox, and Edge. No cookies, no tracking, no ads.</span>
+              </li>
+            </ul>
+
+            <h2 className="font-display font-light text-xl tracking-heading uppercase text-light-text pt-2">
+              Why Use a Metronome
+            </h2>
+
+            <p>
+              Practicing with a metronome is the single most effective way to develop tight timing.
+              Whether you are tracking guitar, programming drums, practicing piano, or rehearsing
+              with a band, a consistent click track keeps everyone locked to the grid. Tempo
+              discipline separates rough demos from release-quality recordings.
+            </p>
+
+            <p>
+              This metronome uses the Web Audio API to generate clicks directly in your browser.
+              Unlike sample-based metronomes that can drift over time, oscillator-based clicks
+              maintain precise timing regardless of system load. The accented downbeat helps you
+              internalize the phrase structure of your time signature.
+            </p>
+
+            <h2 className="font-display font-light text-xl tracking-heading uppercase text-light-text pt-2">
+              Common Tempo Ranges
+            </h2>
+
+            <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+              <div className="flex justify-between border-b border-light-border pb-1">
+                <span className="text-light-text">Largo</span>
+                <span className="font-mono text-light-text-muted">40-60 BPM</span>
+              </div>
+              <div className="flex justify-between border-b border-light-border pb-1">
+                <span className="text-light-text">Adagio</span>
+                <span className="font-mono text-light-text-muted">60-80 BPM</span>
+              </div>
+              <div className="flex justify-between border-b border-light-border pb-1">
+                <span className="text-light-text">Andante</span>
+                <span className="font-mono text-light-text-muted">80-100 BPM</span>
+              </div>
+              <div className="flex justify-between border-b border-light-border pb-1">
+                <span className="text-light-text">Moderato</span>
+                <span className="font-mono text-light-text-muted">100-120 BPM</span>
+              </div>
+              <div className="flex justify-between border-b border-light-border pb-1">
+                <span className="text-light-text">Allegro</span>
+                <span className="font-mono text-light-text-muted">120-156 BPM</span>
+              </div>
+              <div className="flex justify-between border-b border-light-border pb-1">
+                <span className="text-light-text">Vivace</span>
+                <span className="font-mono text-light-text-muted">156-176 BPM</span>
+              </div>
+              <div className="flex justify-between border-b border-light-border pb-1">
+                <span className="text-light-text">Presto</span>
+                <span className="font-mono text-light-text-muted">176-200 BPM</span>
+              </div>
+              <div className="flex justify-between border-b border-light-border pb-1">
+                <span className="text-light-text">Prestissimo</span>
+                <span className="font-mono text-light-text-muted">200+ BPM</span>
+              </div>
+            </div>
+
+            <p className="text-sm text-light-text-muted pt-4">
+              Built by Seris Loom — utility-first audio tools for producers and engineers.
+            </p>
+          </div>
+        </div>
+      </SectionLight>
+
+      <ChannelStrip activeLEDs={0} />
     </>
   );
 }
