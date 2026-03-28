@@ -48,7 +48,7 @@ export function Navigation() {
         {/* Left: logo wordmark */}
         <Link href="/" className="group">
           <img
-            src="/logo-wordmark.svg"
+            src="/logo-wordmark.png"
             alt="Seris Loom"
             className="h-5 w-auto transition-opacity duration-300 group-hover:opacity-80"
           />

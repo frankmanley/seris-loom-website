@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-5xl flex flex-col md:flex-row items-center md:justify-between gap-4 text-center md:text-left">
         <Link href="/" className="group">
           <img
-            src="/logo-wordmark.svg"
+            src="/logo-wordmark.png"
             alt="Seris Loom"
             className="h-3.5 w-auto opacity-50 transition-opacity duration-300 group-hover:opacity-80"
           />
