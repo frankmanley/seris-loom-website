@@ -26,9 +26,72 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const siteUrl = "https://serisloom.com";
+
 export const metadata: Metadata = {
-  title: "Seris Loom",
-  description: "Between the signal and the silence",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Seris Loom — Utility-First Audio Tools",
+    template: "%s | Seris Loom",
+  },
+  description:
+    "Utility-first VST3 audio plugins for producers and engineers. Resonance extraction, bus compression, and precision signal tools designed to disappear into your workflow.",
+  keywords: [
+    "VST3 plugins",
+    "audio plugins",
+    "music production",
+    "resonance extractor",
+    "bus compressor",
+    "mixing tools",
+    "mastering plugins",
+    "DAW plugins",
+    "Ableton plugins",
+    "free music tools",
+    "online metronome",
+    "chromatic tuner",
+    "delay calculator",
+  ],
+  authors: [{ name: "Seris Loom" }],
+  creator: "Seris Loom",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Seris Loom",
+    title: "Seris Loom — Utility-First Audio Tools",
+    description:
+      "Utility-first VST3 audio plugins for producers and engineers. Free tools: metronome, tuner, delay calculator, and more.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Seris Loom — Utility-First Audio Tools",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Seris Loom — Utility-First Audio Tools",
+    description:
+      "Utility-first VST3 audio plugins for producers and engineers.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { products } from "@/data/products";
+
+export const metadata: Metadata = {
+  title: "Products",
+  description: "Utility-first VST3 audio plugins — Res resonance extractor and Byt 8-bit synth. Coming soon.",
+};
 import { SectionDark } from "@/components/layout/section-dark";
 import { SectionLight } from "@/components/layout/section-light";
 import { ChannelStrip } from "@/components/ui/channel-strip";

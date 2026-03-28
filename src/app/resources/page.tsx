@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { SectionDark } from "@/components/layout/section-dark";
+
+export const metadata: Metadata = {
+  title: "Free Music Production Tools",
+  description: "Free online tools for producers and engineers — metronome, chromatic tuner, delay time calculator, note frequency chart, and dB converter.",
+};
 import { SectionLight } from "@/components/layout/section-light";
 import { ChannelStrip } from "@/components/ui/channel-strip";
 import Link from "next/link";

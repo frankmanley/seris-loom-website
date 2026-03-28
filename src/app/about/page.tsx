@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { SectionDark } from "@/components/layout/section-dark";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Seris Loom builds utility-first audio tools for producers, engineers, and musicians who value precision over spectacle.",
+};
 import { SectionLight } from "@/components/layout/section-light";
 import { ChannelStrip } from "@/components/ui/channel-strip";
 import { RetroGrid } from "@/components/ui/retro-grid";
