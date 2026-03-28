@@ -14,54 +14,60 @@ export function Hero() {
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=1200",
-          pin: true,
-          scrub: 1,
-        },
-      });
+    // Set initial states
+    gsap.set(pluginRef.current, {
+      scale: 0.85,
+      rotateX: 15,
+      opacity: 0,
+      y: 30,
+    });
+    gsap.set(textRef.current, {
+      opacity: 0,
+      y: 20,
+    });
 
-      // Plugin starts scaled down, rotated, and transparent
-      tl.fromTo(
-        pluginRef.current,
-        {
-          scale: 0.7,
-          rotateX: 25,
-          opacity: 0,
-          y: 60,
-        },
-        {
-          scale: 1,
-          rotateX: 0,
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-        }
-      );
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=2000",
+        pin: true,
+        scrub: 3,
+        anticipatePin: 1,
+      },
+    });
 
-      // Then text fades in and slides up
-      tl.fromTo(
-        textRef.current,
-        {
-          opacity: 0,
-          y: 40,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        "-=0.3"
-      );
-    }, sectionRef);
+    // Blank hold at start so pin settles
+    tl.to({}, { duration: 0.2 });
 
-    return () => ctx.revert();
+    // Plugin eases in
+    tl.to(pluginRef.current, {
+      scale: 1,
+      rotateX: 0,
+      opacity: 1,
+      y: 0,
+      duration: 1.2,
+      ease: "none",
+    });
+
+    // Text fades in
+    tl.to(
+      textRef.current,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "none",
+      },
+      "-=0.4"
+    );
+
+    // Hold at end so it feels complete before unpinning
+    tl.to({}, { duration: 0.4 });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
 
   return (
@@ -70,17 +76,17 @@ export function Hero() {
       className="relative bg-dark-base overflow-hidden min-h-screen flex flex-col items-center justify-center"
       style={{ perspective: "1200px" }}
     >
-      {/* Pine orb — atmospheric background */}
+      {/* Pine orb */}
       <PineOrb />
 
-      {/* Comet rings — orbiting traces */}
+      {/* Comet rings */}
       <CometRings />
 
-      {/* Plugin — animated in by scroll */}
+      {/* Plugin */}
       <div
         ref={pluginRef}
-        className="relative z-10 w-full max-w-3xl px-4 opacity-0"
-        style={{ transformStyle: "preserve-3d" }}
+        className="relative z-10 w-full max-w-3xl px-4"
+        style={{ transformStyle: "preserve-3d", willChange: "transform, opacity" }}
       >
         <iframe
           src="/byt-prototype/index.html"
@@ -90,10 +96,11 @@ export function Hero() {
         />
       </div>
 
-      {/* Text — animated in after plugin */}
+      {/* Text */}
       <div
         ref={textRef}
-        className="relative z-10 text-center mt-8 opacity-0"
+        className="relative z-10 text-center mt-8"
+        style={{ willChange: "transform, opacity" }}
       >
         <p className="font-pixel text-[10px] tracking-label uppercase text-accent-green mb-3">
           Coming Soon
