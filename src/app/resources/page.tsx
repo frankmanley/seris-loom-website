@@ -16,6 +16,24 @@ const tools = [
     description: "Chromatic tuner with real-time pitch detection via your microphone",
     status: "LIVE",
   },
+  {
+    name: "Delay Calculator",
+    href: "/resources/delay-calculator",
+    description: "Tempo-synced delay times in ms, Hz, and samples for every note division",
+    status: "LIVE",
+  },
+  {
+    name: "Note Frequency Chart",
+    href: "/resources/note-frequency-chart",
+    description: "Complete frequency reference for every note C0 to B8 with MIDI and wavelength",
+    status: "LIVE",
+  },
+  {
+    name: "dB Converter",
+    href: "/resources/db-converter",
+    description: "Convert between dBFS, dBu, dBV, dB SPL, volts, and watts",
+    status: "LIVE",
+  },
 ];
 
 export default function ResourcesPage() {
