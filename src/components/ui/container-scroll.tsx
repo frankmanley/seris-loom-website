@@ -33,7 +33,7 @@ export function ContainerScroll({
     [0, 1],
     isMobile ? [0.7, 0.9] : [1.05, 1]
   );
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -140]);
+  const translate = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
   return (
     <div
@@ -44,10 +44,10 @@ export function ContainerScroll({
         className="w-full relative"
         style={{ perspective: "1000px" }}
       >
-        <ScrollHeader translate={translate} titleComponent={titleComponent} />
         <ScrollCard rotate={rotate} scale={scale}>
           {children}
         </ScrollCard>
+        <ScrollHeader translate={translate} titleComponent={titleComponent} />
       </div>
     </div>
   );
