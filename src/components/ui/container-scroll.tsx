@@ -85,7 +85,7 @@ function ScrollCard({
         rotateX: rotate,
         scale,
       }}
-      className="max-w-5xl mx-auto h-[24rem] sm:h-[32rem] md:h-[50rem] w-full"
+      className="max-w-5xl mx-auto h-[24rem] sm:h-[32rem] md:h-[50rem] w-full -mt-[50px]"
     >
       {children}
     </motion.div>
