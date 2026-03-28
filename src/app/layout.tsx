@@ -103,7 +103,7 @@ export default function RootLayout({
     <html lang="en" className={`${spaceGrotesk.variable} ${pixelifySans.variable} ${ibmPlexMono.variable}`}>
       <body className="font-body bg-dark-base text-dark-text antialiased">
         <Navigation />
-        <main className="pt-14">
+        <main className="pt-[52px]">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
