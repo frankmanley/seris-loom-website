@@ -17,12 +17,12 @@ export function Footer() {
 
         <div className="flex items-center gap-2">
           <LEDIndicator color="green" pulse size="sm" className="shadow-[0_0_6px_rgba(74,106,66,0.6)]" />
-          <span className="font-mono text-[10px] text-dark-text-muted tracking-mono">
+          <span className="font-pixel text-[10px] text-dark-text-muted tracking-mono">
             SYS.ACTIVE
           </span>
         </div>
 
-        <span className="font-mono text-[10px] text-dark-text-muted tracking-mono">
+        <span className="font-pixel text-[10px] text-dark-text-muted tracking-mono">
           &copy; {new Date().getFullYear()} SERIS LOOM
         </span>
       </div>

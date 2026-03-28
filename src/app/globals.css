@@ -26,7 +26,7 @@
   /* Fonts */
   --font-display: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-space-grotesk), sans-serif;
-  --font-pixel: var(--font-silkscreen), monospace;
+  --font-pixel: var(--font-pixelify-sans), monospace;
   --font-mono: var(--font-ibm-plex-mono), monospace;
 
   /* Letter Spacing */

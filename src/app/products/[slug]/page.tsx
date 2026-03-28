@@ -25,7 +25,7 @@ export default async function ProductDetailPage({
       <SectionDark className="pt-24">
         <div className="flex items-center gap-3 mb-4">
           <LEDIndicator color="amber" size="md" />
-          <span className="font-mono text-xs text-dark-text-muted tracking-mono uppercase">
+          <span className="font-pixel text-xs text-dark-text-muted tracking-mono uppercase">
             Coming Soon
           </span>
         </div>

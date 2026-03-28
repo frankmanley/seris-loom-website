@@ -21,7 +21,7 @@ export default async function BlogArticlePage({
   return (
     <>
       <SectionDark className="pt-24">
-        <span className="font-mono text-xs text-dark-text-muted tracking-mono">
+        <span className="font-pixel text-xs text-dark-text-muted tracking-mono">
           {post.date}
         </span>
         <h1 className="font-display font-thin text-3xl md:text-4xl tracking-heading uppercase text-dark-text mt-2">

@@ -26,7 +26,7 @@ export default function BlogPage() {
               href={`/blog/${post.slug}`}
               className="group block bg-dark-surface border border-dark-border rounded-[--radius-card] p-6 transition-all duration-200 hover:border-dark-text-muted"
             >
-              <span className="font-mono text-[10px] text-dark-text-muted tracking-mono">
+              <span className="font-pixel text-[10px] text-dark-text-muted tracking-mono">
                 {post.date}
               </span>
               <h2 className="font-display font-light text-xl tracking-heading uppercase text-dark-text mt-1 mb-2 group-hover:text-accent-amber transition-colors">

@@ -87,7 +87,7 @@ export function Navigation() {
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-2 opacity-40">
             <span className="w-1 h-1 rounded-full bg-accent-green shadow-[0_0_3px_#4A6A42]" />
-            <span className="font-mono text-[10px] text-accent-green tracking-mono">
+            <span className="font-pixel text-[10px] text-accent-green tracking-mono">
               {new Date()
                 .toLocaleDateString("en-US", {
                   month: "2-digit",
@@ -177,7 +177,7 @@ export function Navigation() {
           {/* Mobile date */}
           <div className="flex items-center gap-2 opacity-30 pt-2">
             <span className="w-1 h-1 rounded-full bg-accent-green shadow-[0_0_3px_#4A6A42]" />
-            <span className="font-mono text-[10px] text-accent-green tracking-mono">
+            <span className="font-pixel text-[10px] text-accent-green tracking-mono">
               {new Date()
                 .toLocaleDateString("en-US", {
                   month: "2-digit",

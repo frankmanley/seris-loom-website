@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Silkscreen, IBM_Plex_Mono } from "next/font/google";
+import { Space_Grotesk, Pixelify_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
@@ -12,10 +12,10 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const silkscreen = Silkscreen({
+const pixelifySans = Pixelify_Sans({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-silkscreen",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-pixelify-sans",
   display: "swap",
 });
 
@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${silkscreen.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${pixelifySans.variable} ${ibmPlexMono.variable}`}>
       <body className="font-body bg-dark-base text-dark-text antialiased">
         <Navigation />
         <main className="pt-14">

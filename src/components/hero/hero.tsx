@@ -18,7 +18,7 @@ export function Hero() {
         <ContainerScroll
           titleComponent={
             <>
-              <p className="font-mono text-[10px] tracking-label uppercase text-accent-green mb-3">
+              <p className="font-pixel text-[10px] tracking-label uppercase text-accent-green mb-3">
                 Coming Soon
               </p>
               <h1 className="font-display font-thin text-4xl sm:text-5xl md:text-7xl tracking-display uppercase text-[#EDE7DB] leading-none mb-3">
@@ -27,7 +27,7 @@ export function Hero() {
               <p className="font-display font-extralight text-sm sm:text-base md:text-lg text-dark-text-dim tracking-wide mb-6 max-w-md mx-auto">
                 Resonance extraction for the space between intention and sound
               </p>
-              <p className="font-mono text-[10px] tracking-mono uppercase text-accent-amber/70 mb-8">
+              <p className="font-pixel text-[10px] tracking-mono uppercase text-accent-amber/70 mb-8">
                 In Development
               </p>
             </>
