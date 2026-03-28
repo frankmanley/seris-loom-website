@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 100" fill="#4A6A42">
+  <!-- SERIS LOOM wordmark — L baseline extends under OOM -->
+  <!-- Using Space Grotesk-inspired geometric letterforms -->
+
+  <!-- S -->
+  <path d="M0 78 L0 70 L28 70 L28 54 L4 54 L4 22 L36 22 L36 30 L12 30 L12 46 L36 46 L36 78 Z"/>
+
+  <!-- E -->
+  <path d="M44 22 L76 22 L76 30 L52 30 L52 46 L72 46 L72 54 L52 54 L52 70 L76 70 L76 78 L44 78 Z"/>
+
+  <!-- R -->
+  <path d="M84 22 L116 22 L116 46 L108 46 L120 78 L111 78 L99 46 L92 46 L92 78 L84 78 Z M92 30 L92 38 L108 38 L108 30 Z"/>
+
+  <!-- I -->
+  <path d="M128 22 L136 22 L136 78 L128 78 Z"/>
+
+  <!-- S -->
+  <path d="M144 78 L144 70 L172 70 L172 54 L148 54 L148 22 L180 22 L180 30 L156 30 L156 46 L180 46 L180 78 Z"/>
+
+  <!-- gap between SERIS and LOOM -->
+
+  <!-- L with baseline extension -->
+  <path d="M208 22 L216 22 L216 70 L216 78 L208 78 L208 22 Z"/>
+  <!-- L baseline extending under OOM -->
+  <rect x="216" y="82" width="184" height="6" rx="0"/>
+
+  <!-- O -->
+  <path d="M248 22 L288 22 L288 78 L248 78 Z M256 30 L256 70 L280 70 L280 30 Z"/>
+
+  <!-- O -->
+  <path d="M296 22 L336 22 L336 78 L296 78 Z M304 30 L304 70 L328 70 L328 30 Z"/>
+
+  <!-- M -->
+  <path d="M344 22 L356 22 L370 50 L384 22 L396 22 L396 78 L388 78 L388 38 L374 66 L366 66 L352 38 L352 78 L344 78 Z"/>
+</svg>
