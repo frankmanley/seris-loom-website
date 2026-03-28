@@ -9,10 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tonaljs/tonal": "^4.10.0",
     "clsx": "^2.1.1",
     "gsap": "^3.14.2",
     "motion": "^12.38.0",
     "next": "16.2.1",
+    "pitchy": "^4.1.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "tailwind-merge": "^3.5.0"

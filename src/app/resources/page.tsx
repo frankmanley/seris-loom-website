@@ -10,6 +10,12 @@ const tools = [
     description: "Precision click track with tap tempo, time signatures, and accent patterns",
     status: "LIVE",
   },
+  {
+    name: "Pitch Tuner",
+    href: "/resources/tuner",
+    description: "Chromatic tuner with real-time pitch detection via your microphone",
+    status: "LIVE",
+  },
 ];
 
 export default function ResourcesPage() {
