@@ -24,15 +24,16 @@
   --color-screen-black: #0A0A08;
 
   /* Fonts */
-  --font-display: "Archivo", sans-serif;
-  --font-body: "Archivo", sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-space-grotesk), sans-serif;
+  --font-pixel: var(--font-silkscreen), monospace;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
 
   /* Letter Spacing */
-  --tracking-display: 0.5em;
-  --tracking-heading: 0.25em;
-  --tracking-label: 0.15em;
-  --tracking-mono: 0.1em;
+  --tracking-display: 0.3em;
+  --tracking-heading: 0.15em;
+  --tracking-label: 0.1em;
+  --tracking-mono: 0.05em;
 
   /* Border Radius */
   --radius-btn: 2px;

@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { Space_Grotesk, Silkscreen, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/navigation";
 import { Footer } from "@/components/layout/footer";
 import { PageTransition } from "@/components/layout/page-transition";
 
-const archivo = Archivo({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500"],
-  variable: "--font-archivo",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const silkscreen = Silkscreen({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-silkscreen",
   display: "swap",
 });
 
@@ -30,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${silkscreen.variable} ${ibmPlexMono.variable}`}>
       <body className="font-body bg-dark-base text-dark-text antialiased">
         <Navigation />
         <main className="pt-14">
