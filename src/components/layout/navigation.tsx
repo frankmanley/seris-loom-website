@@ -36,10 +36,7 @@ export function Navigation() {
           "fixed top-0 left-0 right-0 z-50",
           "backdrop-blur-sm",
           "px-4 md:px-8 lg:px-12 py-4 flex items-center justify-between",
-          "transition-[border-color,box-shadow] duration-300",
-          scrolled
-            ? "border-b border-[#3A342C] shadow-[0_2px_0_0_rgba(60,54,44,0.6),0_3px_0_0_rgba(10,8,6,0.8),0_4px_8px_0_rgba(0,0,0,0.4)]"
-            : "border-b border-transparent"
+          "border-b border-[#3A342C] shadow-[0_2px_0_0_rgba(60,54,44,0.6),0_3px_0_0_rgba(10,8,6,0.8),0_4px_8px_0_rgba(0,0,0,0.4)]"
         )}
         style={{
           backgroundImage: "linear-gradient(rgba(20, 18, 16, 0.92), rgba(20, 18, 16, 0.92)), url('/images/textures/console-wood.jpg')",
