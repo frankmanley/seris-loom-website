@@ -49,7 +49,7 @@ export function Navigation() {
       >
         {/* Left: logo */}
         <Link href="/" className="flex items-center gap-4 group">
-          <img src="/logo-mark.png" alt="" className="w-6 h-6 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+          <img src="/logo-mark.svg" alt="" className="w-6 h-6 shrink-0 transition-transform duration-300 group-hover:scale-110" />
           <span className="font-display font-thin text-lg tracking-display uppercase text-dark-text group-hover:text-accent-amber transition-colors duration-300">
             Seris Loom
           </span>
