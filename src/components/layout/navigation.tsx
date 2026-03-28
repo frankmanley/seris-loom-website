@@ -8,6 +8,7 @@ import { LEDIndicator } from "@/components/ui/led-indicator";
 
 const navLinks = [
   { href: "/products", label: "Products" },
+  { href: "/resources", label: "Resources" },
   { href: "/blog", label: "Journal" },
   { href: "/about", label: "About" },
 ];
