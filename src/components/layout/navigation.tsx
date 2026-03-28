@@ -47,13 +47,12 @@ export function Navigation() {
           backgroundPosition: "center",
         }}
       >
-        {/* Left: logo wordmark */}
-        <Link href="/" className="group">
-          <img
-            src="/logo-wordmark.png"
-            alt="Seris Loom"
-            className="h-14 w-auto transition-opacity duration-300 group-hover:opacity-80"
-          />
+        {/* Left: logo */}
+        <Link href="/" className="flex items-center gap-4 group">
+          <div className="w-5 h-5 rounded-full shrink-0 bg-accent-green transition-transform duration-300 group-hover:scale-110" />
+          <span className="font-display font-thin text-lg tracking-display uppercase text-dark-text group-hover:text-accent-amber transition-colors duration-300">
+            Seris Loom
+          </span>
         </Link>
 
         {/* Center: nav links — desktop only */}
