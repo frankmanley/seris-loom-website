@@ -22,7 +22,7 @@ export function Footer() {
           </span>
         </div>
 
-        <span className="font-pixel text-[10px] text-dark-text-muted tracking-mono">
+        <span className="font-mono text-[10px] text-dark-text-muted tracking-mono">
           &copy; {new Date().getFullYear()} SERIS LOOM
         </span>
       </div>

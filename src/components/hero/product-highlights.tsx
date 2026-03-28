@@ -19,17 +19,17 @@ export function ProductHighlights() {
               "hover:bg-dark-surface/70 hover:border-accent-green/40"
             )}
           >
-            <span className="font-pixel text-[9px] text-accent-green tracking-[0.2em] block mb-3">
+            <span className="font-mono text-[9px] text-accent-green tracking-[0.2em] block mb-3">
               MODULE_{String(i + 1).padStart(2, "0")}
             </span>
             <h3 className="font-display font-extralight text-base tracking-label uppercase text-[#EDE7DB] mb-2">
               {product.name}
             </h3>
-            <p className="font-pixel text-[10px] text-dark-text-muted tracking-mono leading-relaxed mb-4">
+            <p className="font-mono text-[10px] text-dark-text-muted tracking-mono leading-relaxed mb-4">
               {product.tagline}
             </p>
             <div className="flex justify-between items-center">
-              <span className={cn("font-pixel text-[9px] tracking-mono", isActive ? "text-accent-amber" : "text-dark-text-muted")}>
+              <span className={cn("font-mono text-[9px] tracking-mono", isActive ? "text-accent-amber" : "text-dark-text-muted")}>
                 v{product.version || "0.0"}
               </span>
               <LEDIndicator

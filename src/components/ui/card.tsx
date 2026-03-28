@@ -61,7 +61,7 @@ export function Card({
           {title}
         </h3>
       </div>
-      <p className="font-pixel text-[10px] text-dark-text-muted tracking-mono">
+      <p className="font-mono text-[10px] text-dark-text-muted tracking-mono">
         {description}
       </p>
     </div>

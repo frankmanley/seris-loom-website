@@ -139,7 +139,7 @@ export default function Home() {
 
               {/* Right: Specs panel (4 cols) */}
               <div className="col-span-12 lg:col-span-4 bg-dark-surface p-5 flex flex-col gap-4">
-                <p className="font-pixel text-[10px] tracking-label uppercase text-dark-text-muted">
+                <p className="font-mono text-[10px] tracking-label uppercase text-dark-text-muted">
                   TECHNICAL SPECIFICATIONS
                 </p>
                 <div className="flex flex-col divide-y divide-dark-border">
@@ -152,10 +152,10 @@ export default function Home() {
                     { label: "STATUS", value: "Coming Soon" },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex justify-between items-center py-2">
-                      <span className="font-pixel text-[10px] tracking-mono uppercase text-dark-text-muted">
+                      <span className="font-mono text-[10px] tracking-mono uppercase text-dark-text-muted">
                         {label}
                       </span>
-                      <span className="font-pixel text-[10px] tracking-mono text-dark-text">
+                      <span className="font-mono text-[10px] tracking-mono text-dark-text">
                         {value}
                       </span>
                     </div>
@@ -183,7 +183,7 @@ export default function Home() {
             <h2 className="font-display font-extralight text-2xl tracking-heading uppercase text-light-text mb-2">
               Research &amp; Development
             </h2>
-            <p className="font-pixel text-xs tracking-label text-light-text-muted uppercase">
+            <p className="font-mono text-xs tracking-label text-light-text-muted uppercase">
               Active pipeline — <GreenText>{products.length} projects</GreenText> registered
             </p>
           </div>
@@ -197,7 +197,7 @@ export default function Home() {
                 <div key={product.slug} className="bg-light-base p-5 flex flex-col gap-3">
                   {/* Project number + status badge */}
                   <div className="flex items-center justify-between">
-                    <span className="font-pixel text-[10px] tracking-mono text-light-text-muted">
+                    <span className="font-mono text-[10px] tracking-mono text-light-text-muted">
                       PROJECT_{projectNum}
                     </span>
                     <span className="font-pixel text-[9px] tracking-label uppercase px-1.5 py-0.5 rounded-sm bg-accent-amber/20 text-accent-amber">
@@ -218,10 +218,10 @@ export default function Home() {
                   {/* Progress bar */}
                   <div className="mt-auto">
                     <div className="flex justify-between items-center mb-1">
-                      <span className="font-pixel text-[9px] tracking-mono text-light-text-muted uppercase">
+                      <span className="font-mono text-[9px] tracking-mono text-light-text-muted uppercase">
                         Progress
                       </span>
-                      <span className="font-pixel text-[9px] tracking-mono text-light-text-muted">
+                      <span className="font-mono text-[9px] tracking-mono text-light-text-muted">
                         {product.progress ?? 0}%
                       </span>
                     </div>
