@@ -39,7 +39,7 @@ export function Navigation() {
           "border-b border-[#3A342C] shadow-[0_2px_0_0_rgba(60,54,44,0.6),0_3px_0_0_rgba(10,8,6,0.8),0_4px_8px_0_rgba(0,0,0,0.4)]"
         )}
         style={{
-          backgroundImage: "linear-gradient(rgba(20, 18, 16, 0.92), rgba(20, 18, 16, 0.92)), url('/images/textures/console-wood.jpg')",
+          backgroundImage: "linear-gradient(rgba(20, 18, 16, 0.75), rgba(20, 18, 16, 0.75)), url('/images/textures/console-wood.jpg')",
           backgroundSize: "cover, 600px auto",
           backgroundPosition: "center, center",
           backgroundRepeat: "no-repeat, repeat",
