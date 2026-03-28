@@ -30,7 +30,7 @@ export function ScaledIframe({ src, title, width, height, className }: ScaledIfr
     <div
       ref={wrapperRef}
       className={className}
-      style={{ height: height * scale, overflow: "hidden" }}
+      style={{ height: height * scale, overflow: "hidden", display: "flex", justifyContent: "center" }}
     >
       <iframe
         src={src}
@@ -41,7 +41,7 @@ export function ScaledIframe({ src, title, width, height, className }: ScaledIfr
           height,
           border: "none",
           transform: `scale(${scale})`,
-          transformOrigin: "top left",
+          transformOrigin: "top center",
         }}
       />
     </div>
