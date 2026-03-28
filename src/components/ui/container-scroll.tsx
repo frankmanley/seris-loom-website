@@ -37,7 +37,7 @@ export function ContainerScroll({
 
   return (
     <div
-      className={`h-[40rem] sm:h-[50rem] md:h-[70rem] flex items-start justify-center relative p-2 md:p-10 pt-0 ${className ?? ""}`}
+      className={`h-[40rem] sm:h-[50rem] md:h-[70rem] flex items-start justify-center relative px-2 md:px-4 pt-0 pb-0 ${className ?? ""}`}
       ref={containerRef}
     >
       <div
@@ -63,7 +63,7 @@ function ScrollHeader({
   return (
     <motion.div
       style={{ translateY: translate }}
-      className="max-w-5xl mx-auto text-center"
+      className="max-w-5xl mx-auto text-center mt-4"
     >
       {titleComponent}
     </motion.div>
@@ -85,7 +85,7 @@ function ScrollCard({
         rotateX: rotate,
         scale,
       }}
-      className="max-w-5xl mx-auto h-[24rem] sm:h-[32rem] md:h-[50rem] w-full -mt-[50px]"
+      className="max-w-5xl mx-auto h-[24rem] sm:h-[32rem] md:h-[50rem] w-full"
     >
       {children}
     </motion.div>
