@@ -37,7 +37,7 @@ export function ContainerScroll({
 
   return (
     <div
-      className={`h-[40rem] sm:h-[50rem] md:h-[70rem] flex items-start justify-center relative p-2 md:p-10 pt-16 sm:pt-20 md:pt-20 ${className ?? ""}`}
+      className={`h-[40rem] sm:h-[50rem] md:h-[70rem] flex items-center justify-center relative p-2 md:p-10 ${className ?? ""}`}
       ref={containerRef}
     >
       <div
