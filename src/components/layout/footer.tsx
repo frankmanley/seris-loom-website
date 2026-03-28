@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="bg-dark-base border-t border-dark-border px-4 md:px-8 py-6">
       <div className="mx-auto max-w-5xl flex flex-col md:flex-row items-center md:justify-between gap-4 text-center md:text-left">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-3.5 h-3.5 rounded-full shrink-0 bg-accent-green" />
+          <img src="/logo-mark.png" alt="" className="w-4 h-4 shrink-0" />
           <span className="font-display font-thin text-sm tracking-heading uppercase text-dark-text-dim group-hover:text-accent-amber transition-colors duration-300">
             Seris Loom
           </span>
