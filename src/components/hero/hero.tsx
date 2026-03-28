@@ -22,10 +22,10 @@ export function Hero() {
                 Coming Soon
               </p>
               <h1 className="font-display font-thin text-4xl sm:text-5xl md:text-7xl tracking-display uppercase text-[#EDE7DB] leading-none mb-3">
-                Res
+                Byt
               </h1>
               <p className="font-display font-extralight text-sm sm:text-base md:text-lg text-dark-text-dim tracking-wide mb-6 max-w-md mx-auto">
-                Resonance extraction for the space between intention and sound
+                8-bit Game Boy DMG synth with VHS wobble and tape degradation
               </p>
               <p className="font-pixel text-[10px] tracking-mono uppercase text-accent-amber/70 mb-8">
                 In Development
@@ -33,10 +33,11 @@ export function Hero() {
             </>
           }
         >
-          <img
-            src="/images/res-screenshot.png"
-            alt="Seris Res — Resonance Extractor VST3 Plugin"
-            className="w-full h-full object-contain"
+          <iframe
+            src="/byt-prototype/index.html"
+            className="w-full h-full border-0"
+            title="Seris Byt — 8-bit Synth Plugin"
+            style={{ pointerEvents: "auto" }}
           />
         </ContainerScroll>
       </div>

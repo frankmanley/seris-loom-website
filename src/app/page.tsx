@@ -30,6 +30,7 @@ function RevealWrapper({ children }: { children: React.ReactNode }) {
 }
 
 export default function Home() {
+  const byt = products.find((p) => p.slug === "byt");
   const res = products.find((p) => p.slug === "res");
 
   return (
@@ -71,11 +72,10 @@ export default function Home() {
       {/* 4. Channel Strip */}
       <ChannelStrip label="PREVIEW" activeLEDs={1} />
 
-      {/* 5. Featured Product — Coming Soon */}
-      {res && (
+      {/* 5. Featured Product — Byt */}
+      {byt && (
         <SectionDark>
           <RevealWrapper>
-            {/* Above: label + heading */}
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
               <div>
                 <p className="font-pixel text-xs tracking-label uppercase text-accent-amber mb-2">
@@ -84,7 +84,7 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <GreenDot size="lg" />
                   <h2 className="font-display font-extralight text-3xl md:text-4xl tracking-heading uppercase text-dark-text">
-                    {res.name}
+                    {byt.name}
                   </h2>
                 </div>
               </div>
@@ -93,8 +93,7 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Main 12-column grid */}
-            <div className="relative grid grid-cols-12 gap-px bg-dark-border rounded-[--radius-card] overflow-hidden">
+            <div className="relative rounded-[--radius-card] overflow-hidden">
               <BorderBeam
                 size={120}
                 duration={10}
@@ -102,70 +101,16 @@ export default function Home() {
                 colorTo="#C86A1A"
                 borderWidth={1}
               />
-              {/* Left: CRT display (8 cols) */}
-              <div className="col-span-12 lg:col-span-8">
-                <CRTInset className="h-80 lg:h-96 rounded-none">
-                  {/* Flickering grid background */}
-                  <FlickeringGrid
-                    className="absolute inset-0 z-0"
-                    squareSize={2}
-                    gridGap={3}
-                    color="rgb(74, 106, 66)"
-                    maxOpacity={0.08}
-                    flickerChance={0.02}
-                  />
-                  {/* Plugin screenshot */}
-                  {res.image && (
-                    <img
-                      src={res.image}
-                      alt={res.name}
-                      className="w-full h-full object-contain"
-                    />
-                  )}
-                  {/* Overlay: top-left status */}
-                  <div className="absolute top-3 left-3 z-20 flex flex-col gap-1">
-                    <span className="font-pixel text-[10px] tracking-mono text-accent-amber/80">
-                      STATUS: DEV
-                    </span>
-                    <span className="font-pixel text-[10px] tracking-mono text-accent-green/70">
-                      PROGRESS: {res.progress}%
-                    </span>
-                  </div>
-                  {/* Overlay: corner accents */}
-                  <div className="absolute top-2 right-2 z-20 w-4 h-4 border-t border-r border-accent-amber/30" />
-                  <div className="absolute bottom-2 left-2 z-20 w-4 h-4 border-b border-l border-accent-amber/30" />
-                </CRTInset>
-              </div>
-
-              {/* Right: Specs panel (4 cols) */}
-              <div className="col-span-12 lg:col-span-4 bg-dark-surface p-5 flex flex-col gap-4">
-                <p className="font-mono text-[10px] tracking-label uppercase text-dark-text-muted">
-                  TECHNICAL SPECIFICATIONS
-                </p>
-                <div className="flex flex-col divide-y divide-dark-border">
-                  {[
-                    { label: "TYPE", value: "Resonance Extractor" },
-                    { label: "FORMAT", value: "VST3" },
-                    { label: "LATENCY", value: "0 Samples" },
-                    { label: "OS", value: "macOS / Win" },
-                    { label: "OVERSAMPLE", value: "2x Always" },
-                    { label: "STATUS", value: "Coming Soon" },
-                  ].map(({ label, value }) => (
-                    <div key={label} className="flex justify-between items-center py-2">
-                      <span className="font-mono text-[10px] tracking-mono uppercase text-dark-text-muted">
-                        {label}
-                      </span>
-                      <span className="font-mono text-[10px] tracking-mono text-dark-text">
-                        {value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <p className="font-body font-light text-xs text-dark-text-dim leading-relaxed mt-auto">
-                  {res.tagline}
-                </p>
-              </div>
+              <iframe
+                src="/byt-prototype/index.html"
+                className="w-full h-[420px] border-0"
+                title="Seris Byt — 8-bit Synth Plugin"
+              />
             </div>
+
+            <p className="font-body font-light text-sm text-dark-text-dim leading-relaxed mt-6 max-w-2xl">
+              {byt.tagline}
+            </p>
           </RevealWrapper>
         </SectionDark>
       )}
